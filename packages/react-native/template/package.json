@@ -5,13 +5,15 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "visionos": "react-native run-visionos",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.74.0-rc.6"
+    "react-native": "0.74.0-rc.6",
+    "@callstack/react-native-visionos": "0.74.0-rc.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
