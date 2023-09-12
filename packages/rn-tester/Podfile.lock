@@ -122,7 +122,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/CoreModulesHeaders (0.75.0-rc.5):
     - glog
@@ -139,7 +139,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/Default (0.75.0-rc.5):
     - glog
@@ -155,7 +155,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/DevSupport (0.75.0-rc.5):
     - glog
@@ -173,7 +173,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTActionSheetHeaders (0.75.0-rc.5):
     - glog
@@ -190,7 +190,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTAnimationHeaders (0.75.0-rc.5):
     - glog
@@ -207,7 +207,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTBlobHeaders (0.75.0-rc.5):
     - glog
@@ -224,7 +224,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTImageHeaders (0.75.0-rc.5):
     - glog
@@ -241,7 +241,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTLinkingHeaders (0.75.0-rc.5):
     - glog
@@ -258,7 +258,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTNetworkHeaders (0.75.0-rc.5):
     - glog
@@ -275,7 +275,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTPushNotificationHeaders (0.75.0-rc.5):
     - glog
@@ -292,7 +292,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTSettingsHeaders (0.75.0-rc.5):
     - glog
@@ -309,7 +309,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTTextHeaders (0.75.0-rc.5):
     - glog
@@ -326,7 +326,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTVibrationHeaders (0.75.0-rc.5):
     - glog
@@ -343,7 +343,7 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-Core/RCTWebSocket (0.75.0-rc.5):
     - glog
@@ -360,7 +360,41 @@ PODS:
     - React-perflogger
     - React-runtimescheduler
     - React-utils
-    - SocketRocket (= 0.7.0)
+    - SocketRocket (= 0.7.0.1)
+    - Yoga
+  - React-Core/RCTWindowManagerHeaders (1000.0.0):
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTDeprecation
+    - React-Core/Default
+    - React-cxxreact
+    - React-featureflags
+    - React-hermes
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-perflogger
+    - React-runtimescheduler
+    - React-utils
+    - SocketRocket (= 0.7.0.1)
+    - Yoga
+  - React-Core/RCTXRHeaders (1000.0.0):
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTDeprecation
+    - React-Core/Default
+    - React-cxxreact
+    - React-featureflags
+    - React-hermes
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-perflogger
+    - React-runtimescheduler
+    - React-utils
+    - SocketRocket (= 0.7.0.1)
     - Yoga
   - React-CoreModules (0.75.0-rc.5):
     - DoubleConversion
@@ -1623,7 +1657,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - SocketRocket (0.7.0)
+  - SocketRocket (0.7.0.1)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1682,6 +1716,7 @@ DEPENDENCIES:
   - React-RCTNetwork (from `../react-native/Libraries/Network`)
   - React-RCTPushNotification (from `../react-native/Libraries/PushNotificationIOS`)
   - React-RCTSettings (from `../react-native/Libraries/Settings`)
+  - React-RCTSwiftExtensions (from `../react-native/Libraries/SwiftExtensions`)
   - React-RCTTest (from `./RCTTest`)
   - React-RCTText (from `../react-native/Libraries/Text`)
   - React-RCTVibration (from `../react-native/Libraries/Vibration`)
@@ -1698,12 +1733,8 @@ DEPENDENCIES:
   - ReactCommon-Samples (from `../react-native/ReactCommon/react/nativemodule/samples`)
   - ReactCommon/turbomodule/core (from `../react-native/ReactCommon`)
   - ScreenshotManager (from `NativeModuleExample`)
+  - SocketRocket (from `../react-native/third-party-podspecs/SocketRocket.podspec`)
   - Yoga (from `../react-native/ReactCommon/yoga`)
-
-SPEC REPOS:
-  trunk:
-    - OCMock
-    - SocketRocket
 
 EXTERNAL SOURCES:
   boost:
@@ -1811,6 +1842,8 @@ EXTERNAL SOURCES:
     :path: "../react-native/Libraries/PushNotificationIOS"
   React-RCTSettings:
     :path: "../react-native/Libraries/Settings"
+  React-RCTSwiftExtensions:
+    :path: "../react-native/Libraries/SwiftExtensions"
   React-RCTTest:
     :path: "./RCTTest"
   React-RCTText:
@@ -1843,6 +1876,8 @@ EXTERNAL SOURCES:
     :path: "../react-native/ReactCommon/react/nativemodule/samples"
   ScreenshotManager:
     :path: NativeModuleExample
+  SocketRocket:
+    :podspec: "../react-native/third-party-podspecs/SocketRocket.podspec"
   Yoga:
     :path: "../react-native/ReactCommon/yoga"
 
