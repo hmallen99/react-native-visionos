@@ -652,6 +652,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithFrame : (CGRect)frame)
 
 - (void)setCustomInputAccessoryViewWithNativeID:(NSString *)nativeID
 {
+#if !TARGET_OS_VISION
   __weak RCTBaseTextInputView *weakSelf = self;
   [_bridge.uiManager rootViewForReactTag:self.reactTag
                           withCompletion:^(UIView *rootView) {
@@ -666,6 +667,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithFrame : (CGRect)frame)
                               }
                             }
                           }];
+#endif
 }
 
 - (NSString *)returnKeyTypeToString:(UIReturnKeyType)returnKeyType
@@ -712,6 +714,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithFrame : (CGRect)frame)
 
 - (void)setDefaultInputAccessoryView
 {
+#if !TARGET_OS_VISION
   UIView<RCTBackedTextInputViewProtocol> *textInputView = self.backedTextInputView;
   UIKeyboardType keyboardType = textInputView.keyboardType;
 
@@ -750,6 +753,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithFrame : (CGRect)frame)
     textInputView.inputAccessoryView = nil;
   }
   [self reloadInputViewsIfNecessary];
+#endif
 }
 
 - (void)reloadInputViewsIfNecessary
