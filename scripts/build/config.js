@@ -53,6 +53,10 @@ const buildConfig /*: BuildConfig */ = {
       target: 'node',
       emitTypeScriptDefs: true,
     },
+    'out-of-tree-platforms': {
+      emitTypeScriptDefs: true,
+      target: 'node',
+    },
   },
 };
 
