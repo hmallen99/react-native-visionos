@@ -197,7 +197,7 @@ async function testRNTestProject(circleCIArtifacts) {
   // Prepare some variables for later use
   const repoRoot = pwd();
   const reactNativePackagePath = `${repoRoot}/packages/react-native`;
-  const localNodeTGZPath = `${reactNativePackagePath}/react-native-${releaseVersion}.tgz`;
+  const localNodeTGZPath = `${reactNativePackagePath}/callstack-react-native-visionos-${releaseVersion}.tgz`;
 
   const mavenLocalPath =
     circleCIArtifacts != null
