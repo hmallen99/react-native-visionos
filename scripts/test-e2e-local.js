@@ -214,7 +214,7 @@ async function testRNTestProject(circleCIArtifacts) {
   );
 
   updateTemplatePackage({
-    'react-native': `file://${localNodeTGZPath}`,
+    '@callstack/react-native-visionos': `file://${localNodeTGZPath}`,
   });
 
   pushd('/tmp/');
