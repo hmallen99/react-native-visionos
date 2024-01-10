@@ -22,16 +22,7 @@
 #import <RNTMyNativeViewComponentView.h>
 #endif
 
-// FB-internal imports
-#ifdef RN_DISABLE_OSS_PLUGIN_HEADER
-#import <RCTFBAppInit/RCTFBAppInit.h>
-#endif
-
-#if BUNDLE_PATH
-NSString *kBundlePath = @"xplat/js/RKJSModules/EntryPoints/RNTesterTestBundle.js";
-#else
-NSString *kBundlePath = @"js/RNTesterApp.ios";
-#endif
+static NSString *kBundlePath = @"js/RNTesterApp.ios";
 
 @implementation AppDelegate
 
