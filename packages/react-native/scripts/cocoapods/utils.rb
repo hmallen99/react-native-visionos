@@ -645,6 +645,7 @@ class ReactNativePodsUtils
             "hermes-engine",
             "libevent",
             "React-hermes",
+            "React-RCTXR", # visionOS
         ]
     end
 
