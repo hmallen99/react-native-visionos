@@ -674,6 +674,7 @@ class ReactNativePodsUtils
             "glog",
             "hermes-engine",
             "React-hermes",
+            "React-RCTXR", # visionOS
         ]
     end
 
