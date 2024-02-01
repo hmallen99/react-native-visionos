@@ -195,7 +195,9 @@ function handleThirdPartyLibraries(
   codegenConfigKey,
 ) {
   // Determine which of these are codegen-enabled libraries
-  const configDir = baseCodegenConfigFileDir || process.cwd();
+  const configDir =
+    baseCodegenConfigFileDir ||
+    path.join(REACT_NATIVE_PACKAGE_ROOT_FOLDER, '..', '..');
   console.log(
     `\n\n[Codegen] >>>>> Searching for codegen-enabled libraries in ${configDir}`,
   );
