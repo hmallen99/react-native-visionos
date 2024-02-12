@@ -1,14 +1,18 @@
 #import <React/RCTXRModule.h>
 
+#if RCT_NEW_ARCH_ENABLED
 #import <FBReactNativeSpec_visionOS/FBReactNativeSpec_visionOS.h>
+#endif
 
 #import <React/RCTBridge.h>
 #import <React/RCTConvert.h>
 #import <React/RCTUtils.h>
 #import "RCTXR-Swift.h"
 
+#if RCT_NEW_ARCH_ENABLED
 @interface RCTXRModule () <NativeXRModuleSpec>
 @end
+#endif
 
 @implementation RCTXRModule {
   UIViewController *_immersiveBridgeView;
@@ -56,6 +60,19 @@ RCT_EXPORT_METHOD(requestSession
   });
 }
 
+- (void) removeImmersiveBridge
+{
+  RCTExecuteOnMainQueue(^{
+    [self->_immersiveBridgeView willMoveToParentViewController:nil];
+    [self->_immersiveBridgeView.view removeFromSuperview];
+    [self->_immersiveBridgeView removeFromParentViewController];
+    self->_immersiveBridgeView = nil;
+  });
+}
+
+#pragma mark New Architecture
+
+#if RCT_NEW_ARCH_ENABLED
 - (facebook::react::ModuleConstants<JS::NativeXRModule::Constants::Builder>)constantsToExport {
   return [self getConstants];
 }
@@ -70,20 +87,13 @@ RCT_EXPORT_METHOD(requestSession
   
   return constants;
 }
+#endif
 
-- (void) removeImmersiveBridge
-{
-  RCTExecuteOnMainQueue(^{
-    [self->_immersiveBridgeView willMoveToParentViewController:nil];
-    [self->_immersiveBridgeView.view removeFromSuperview];
-    [self->_immersiveBridgeView removeFromParentViewController];
-    self->_immersiveBridgeView = nil;
-  });
-}
-
+#if RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params {
   return std::make_shared<facebook::react::NativeXRModuleSpecJSI>(params);
 }
+#endif
 
 + (BOOL)requiresMainQueueSetup
 {
