@@ -71,17 +71,6 @@ BaseViewProps::BaseViewProps(
                     "backgroundColor",
                     sourceProps.backgroundColor,
                     {})),
-#if TARGET_OS_VISION
-    visionos_hoverEffect(
-        CoreFeatures::enablePropIteratorSetter
-            ? sourceProps.visionos_hoverEffect
-            : convertRawProp(
-                  context,
-                  rawProps,
-                  "visionos_hoverEffect",
-                  sourceProps.visionos_hoverEffect,
-                  {})),
-#endif
       borderRadii(
           CoreFeatures::enablePropIteratorSetter ? sourceProps.borderRadii
                                                  : convertRawProp(
@@ -151,6 +140,15 @@ BaseViewProps::BaseViewProps(
                                                        "shadowRadius",
                                                        sourceProps.shadowRadius,
                                                        {})),
+      cursor(
+          CoreFeatures::enablePropIteratorSetter
+              ? sourceProps.cursor
+              : convertRawProp(
+                    context,
+                    rawProps,
+                    "cursor",
+                    sourceProps.cursor,
+                    {})),
       transform(
           CoreFeatures::enablePropIteratorSetter ? sourceProps.transform
                                                  : convertRawProp(
@@ -292,9 +290,6 @@ void BaseViewProps::setProp(
     RAW_SET_PROP_SWITCH_CASE_BASIC(collapsable);
     RAW_SET_PROP_SWITCH_CASE_BASIC(removeClippedSubviews);
     RAW_SET_PROP_SWITCH_CASE_BASIC(experimental_layoutConformance);
-#if TARGET_OS_VISION
-    RAW_SET_PROP_SWITCH_CASE_BASIC(visionos_hoverEffect);
-#endif
     // events field
     VIEW_EVENT_CASE(PointerEnter);
     VIEW_EVENT_CASE(PointerEnterCapture);
