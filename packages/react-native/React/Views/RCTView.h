@@ -9,6 +9,7 @@
 
 #import <React/RCTBorderCurve.h>
 #import <React/RCTBorderStyle.h>
+#import <React/RCTCursor.h>
 #import <React/RCTComponent.h>
 #import <React/RCTPointerEvents.h>
 
@@ -120,12 +121,7 @@ extern const UIAccessibilityTraits SwitchAccessibilityTrait;
  */
 @property (nonatomic, assign) UIEdgeInsets hitTestEdgeInsets;
 
-#if TARGET_OS_VISION
-/**
- *  The hover style to apply to a view, including an effect and a shape to use for displaying that effect.
- */
-@property (nonatomic, copy) NSString *hoverEffect;
-#endif
+@property (nonatomic, assign) RCTCursor cursor;
 
 /**
  * (Experimental and unused for Paper) Pointer event handlers.

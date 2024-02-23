@@ -8662,6 +8662,7 @@ export type EdgeInsetsValue = {
   right: number,
   bottom: number,
 };
+export type CursorValue = ?(\\"auto\\" | \\"pointer\\");
 export type DimensionValue = number | string | \\"auto\\" | AnimatedNode | null;
 export type AnimatableNumericValue = number | AnimatedNode;
 type ____LayoutStyle_Internal = $ReadOnly<{
@@ -8814,6 +8815,7 @@ export type ____ViewStyle_InternalCore = $ReadOnly<{
   opacity?: AnimatableNumericValue,
   elevation?: number,
   pointerEvents?: \\"auto\\" | \\"none\\" | \\"box-none\\" | \\"box-only\\",
+  cursor?: CursorValue,
 }>;
 export type ____ViewStyle_Internal = $ReadOnly<{
   ...____ViewStyle_InternalCore,
