@@ -16,7 +16,7 @@ new_arch_enabled_flag = (is_new_arch_enabled ? " -DRCT_NEW_ARCH_ENABLED" : "")
 
 folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -Wno-comma -Wno-shorten-64-to-32'
 folly_version = '2022.05.16.00'
-compiler_flags = folly_compiler_flags + + new_arch_enabled_flag + ' -Wno-nullability-completeness'
+compiler_flags = folly_compiler_flags + new_arch_enabled_flag + ' -Wno-nullability-completeness'
 
 header_search_paths = [
   "\"$(PODS_ROOT)/RCT-Folly\"",
@@ -24,11 +24,11 @@ header_search_paths = [
 ]
 
 Pod::Spec.new do |s|
-  s.name                   = "React-RCTXR"
+  s.name                   = "React-RCTWindowManager"
   s.version                = version
-  s.summary                = "XR module for React Native."
-  s.homepage               = "https://callstack.github.io/react-native-visionos-docs/"
-  s.documentation_url      = "https://callstack.github.io/react-native-visionos-docs/api/XR"
+  s.summary                = "Window manager module for React Native."
+  s.homepage               = "https://callstack.github.io/react-native-visionos-docs"
+  s.documentation_url      = "https://callstack.github.io/react-native-visionos-docs/api/windowmanager"
   s.license                = package["license"]
   s.author                 = "Callstack"
   s.platforms              = min_supported_versions
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
   s.source                 = source
   s.source_files           = "*.{m,mm,swift}"
   s.preserve_paths         = "package.json", "LICENSE", "LICENSE-docs"
-  s.header_dir             = "RCTXR"
+  s.header_dir             = "RCTWindowManager"
   s.pod_target_xcconfig    = {
                                "USE_HEADERMAP" => "YES",
                                "CLANG_CXX_LANGUAGE_STANDARD" => "c++20",
@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
   s.dependency "RCT-Folly", folly_version
   s.dependency "RCTTypeSafety"
   s.dependency "React-jsi"
-  s.dependency "React-Core/RCTXRHeaders"
+  s.dependency "React-Core/RCTWindowManagerHeaders"
 
   add_dependency(s, "React-Codegen", :additional_framework_paths => ["build/generated/ios"])
   add_dependency(s, "ReactCommon", :subspec => "turbomodule/core", :additional_framework_paths => ["react/nativemodule/core"])

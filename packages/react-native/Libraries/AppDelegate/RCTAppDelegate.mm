@@ -100,22 +100,7 @@ static NSDictionary *updateInitialProps(NSDictionary *initialProps, BOOL isFabri
   RCTAppSetupPrepareApp(application, enableTM);
 
     
-#if TARGET_OS_VISION
-  /// Bail out of UIWindow initializaiton to support multi-window scenarios in SwiftUI lifecycle.
   return YES;
-#else
-  UIView* rootView = [self viewWithModuleName:self.moduleName initialProperties:[self prepareInitialProps] launchOptions:launchOptions];
-    
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  
-  UIViewController *rootViewController = [self createRootViewController];
-  [self setRootView:rootView toRootViewController:rootViewController];
-  self.window.rootViewController = rootViewController;
-  self.window.windowScene.delegate = self;
-  [self.window makeKeyAndVisible];
-
-  return YES;
-#endif
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -159,12 +144,14 @@ static NSDictionary *updateInitialProps(NSDictionary *initialProps, BOOL isFabri
       self.bridge = [self createBridgeWithDelegate:self launchOptions:launchOptions];
     }
 #if RCT_NEW_ARCH_ENABLED
-    self.bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:self.bridge
-                                                                 contextContainer:_contextContainer];
-    self.bridge.surfacePresenter = self.bridgeAdapter.surfacePresenter;
-    
-    [self unstable_registerLegacyComponents];
-    [RCTComponentViewFactory currentComponentViewFactory].thirdPartyFabricComponentsProvider = self;
+    if (!self.bridgeAdapter) {
+      self.bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:self.bridge
+                                                                   contextContainer:_contextContainer];
+      
+      self.bridge.surfacePresenter = self.bridgeAdapter.surfacePresenter;
+      [self unstable_registerLegacyComponents];
+      [RCTComponentViewFactory currentComponentViewFactory].thirdPartyFabricComponentsProvider = self;
+    }
 #endif
     
     rootView = [self createRootViewWithBridge:self.bridge moduleName:moduleName initProps:initialProperties];

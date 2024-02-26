@@ -7,14 +7,9 @@ import type {TurboModule} from '../TurboModule/RCTExport';
 
 import * as TurboModuleRegistry from '../TurboModule/TurboModuleRegistry';
 
-export type XRModuleConstants = {|
-  +supportsMultipleScenes?: boolean,
-|};
-
 export interface Spec extends TurboModule {
-  +getConstants: () => XRModuleConstants;
-
-  +requestSession: (sessionId?: string) => Promise<void>;
+  // $FlowIgnore[unclear-type]
+  +requestSession: (sessionId?: string, userInfo: Object) => Promise<void>;
   +endSession: () => Promise<void>;
 }
 

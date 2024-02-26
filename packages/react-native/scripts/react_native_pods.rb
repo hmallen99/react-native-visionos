@@ -138,6 +138,7 @@ def use_react_native! (
   pod "React-nativeconfig", :path => "#{prefix}/ReactCommon"
   pod 'React-RCTSwiftExtensions', :path => "#{prefix}/Libraries/SwiftExtensions"
   pod 'React-RCTXR', :path => "#{prefix}/Libraries/XR"
+  pod 'React-RCTWindowManager', :path => "#{prefix}/Libraries/WindowManager", :modular_headers => true
 
   if hermes_enabled
     setup_hermes!(:react_native_path => prefix)

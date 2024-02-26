@@ -142,11 +142,18 @@
         "jsSrcsDir": "Libraries"
       },
       {
-        "name": "FBReactNativeSpec_visionOS",
+        "name": "RCTXRSpec",
         "type": "modules",
         "ios": {},
         "android": {},
         "jsSrcsDir": "Libraries/XR"
+      },
+      {
+        "name": "RCTWindowManagerSpec",
+        "type": "modules",
+        "ios": {},
+        "android": {},
+        "jsSrcsDir": "Libraries/WindowManager"
       },
       {
         "name": "rncore",
