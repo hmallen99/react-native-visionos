@@ -1,13 +1,17 @@
 #import <React/RCTXRModule.h>
 
 #if RCT_NEW_ARCH_ENABLED
-#import <FBReactNativeSpec_visionOS/FBReactNativeSpec_visionOS.h>
+#import <RCTXRSpec/RCTXRSpec.h>
 #endif
 
 #import <React/RCTBridge.h>
 #import <React/RCTConvert.h>
 #import <React/RCTUtils.h>
 #import "RCTXR-Swift.h"
+
+// Events
+static NSString *const RCTOpenImmersiveSpace = @"RCTOpenImmersiveSpace";
+static NSString *const RCTDismissImmersiveSpace = @"RCTDismissImmersiveSpace";
 
 #if RCT_NEW_ARCH_ENABLED
 @interface RCTXRModule () <NativeXRModuleSpec>
@@ -16,6 +20,7 @@
 
 @implementation RCTXRModule {
   UIViewController *_immersiveBridgeView;
+  NSString *_currentSessionId;
 }
 
 RCT_EXPORT_MODULE()
@@ -24,28 +29,51 @@ RCT_EXPORT_METHOD(endSession
                   : (RCTPromiseResolveBlock)resolve reject
                   : (RCTPromiseRejectBlock)reject)
 {
-  [self removeImmersiveBridge];
+  [self removeViewController:self->_immersiveBridgeView];
+  self->_immersiveBridgeView = nil;
+  RCTExecuteOnMainQueue(^{
+    if (self->_currentSessionId != nil) {
+      [[NSNotificationCenter defaultCenter] postNotificationName:RCTDismissImmersiveSpace object:self userInfo:@{@"id": self->_currentSessionId}];
+    }
+  });
+  _currentSessionId = nil;
   resolve(nil);
 }
 
 
 RCT_EXPORT_METHOD(requestSession
-                  : (NSString *)sessionId resolve
-                  : (RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+                  : (NSString *)sessionId userInfo
+                  : (NSDictionary *)userInfo resolve
+                  : (RCTPromiseResolveBlock)resolve reject
+                  : (RCTPromiseRejectBlock)reject)
 {
   RCTExecuteOnMainQueue(^{
+    if (!RCTSharedApplication().supportsMultipleScenes) {
+      reject(@"ERROR", @"Multiple scenes not supported", nil);
+    }
     UIWindow *keyWindow = RCTKeyWindow();
     UIViewController *rootViewController = keyWindow.rootViewController;
     
     if (self->_immersiveBridgeView == nil) {
-      self->_immersiveBridgeView = [ImmersiveBridgeFactory makeImmersiveBridgeViewWithSpaceId:sessionId
+      NSMutableDictionary *userInfoDict = [[NSMutableDictionary alloc] init];
+      [userInfoDict setValue:sessionId forKey:@"id"];
+      if (userInfo != nil) {
+        [userInfoDict setValue:userInfo forKey:@"userInfo"];
+      }
+      NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+          [notificationCenter postNotificationName:RCTOpenImmersiveSpace object:self userInfo:userInfoDict];
+      self->_currentSessionId = sessionId;
+      
+      self->_immersiveBridgeView = [SwiftUIBridgeFactory makeImmersiveBridgeViewWithSpaceId:sessionId
                                                                             completionHandler:^(enum ImmersiveSpaceResult result){
         if (result == ImmersiveSpaceResultError) {
           reject(@"ERROR", @"Immersive Space failed to open, the system cannot fulfill the request.", nil);
-          [self removeImmersiveBridge];
+          [self removeViewController:self->_immersiveBridgeView];
+          self->_immersiveBridgeView = nil;
         } else if (result == ImmersiveSpaceResultUserCancelled) {
           reject(@"ERROR", @"Immersive Space canceled by user", nil);
-          [self removeImmersiveBridge];
+          [self removeViewController:self->_immersiveBridgeView];
+          self->_immersiveBridgeView = nil;
         } else if (result == ImmersiveSpaceResultOpened) {
           resolve(nil);
         }
@@ -60,34 +88,15 @@ RCT_EXPORT_METHOD(requestSession
   });
 }
 
-- (void) removeImmersiveBridge
+
+- (void)removeViewController:(UIViewController*)viewController
 {
   RCTExecuteOnMainQueue(^{
-    [self->_immersiveBridgeView willMoveToParentViewController:nil];
-    [self->_immersiveBridgeView.view removeFromSuperview];
-    [self->_immersiveBridgeView removeFromParentViewController];
-    self->_immersiveBridgeView = nil;
+    [viewController willMoveToParentViewController:nil];
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
   });
 }
-
-#pragma mark New Architecture
-
-#if RCT_NEW_ARCH_ENABLED
-- (facebook::react::ModuleConstants<JS::NativeXRModule::Constants::Builder>)constantsToExport {
-  return [self getConstants];
-}
-
-- (facebook::react::ModuleConstants<JS::NativeXRModule::Constants>)getConstants {
-  __block facebook::react::ModuleConstants<JS::NativeXRModule::Constants> constants;
-  RCTUnsafeExecuteOnMainQueueSync(^{
-    constants = facebook::react::typedConstants<JS::NativeXRModule::Constants>({
-      .supportsMultipleScenes = RCTSharedApplication().supportsMultipleScenes
-    });
-  });
-  
-  return constants;
-}
-#endif
 
 #if RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params {
@@ -95,14 +104,4 @@ RCT_EXPORT_METHOD(requestSession
 }
 #endif
 
-+ (BOOL)requiresMainQueueSetup
-{
-  return YES;
-}
-
 @end
-
-Class RCTXRModuleCls(void)
-{
-  return RCTXRModule.class;
-}
