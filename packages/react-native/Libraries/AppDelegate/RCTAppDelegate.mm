@@ -53,13 +53,6 @@
     [RCTComponentViewFactory currentComponentViewFactory].thirdPartyFabricComponentsProvider = self;
   }
 
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [self createRootViewController];
-  [self setRootView:rootView toRootViewController:rootViewController];
-  self.window.rootViewController = rootViewController;
-  self.window.windowScene.delegate = self;
-  [self.window makeKeyAndVisible];
-
   return YES;
 }
 
@@ -87,7 +80,11 @@
   BOOL enableFabric = self.fabricEnabled;
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, moduleName, initProps, enableFabric);
 
+#if TARGET_OS_VISION
+  rootView.backgroundColor = [UIColor clearColor];
+#else
   rootView.backgroundColor = [UIColor systemBackgroundColor];
+#endif
 
   return rootView;
 }
