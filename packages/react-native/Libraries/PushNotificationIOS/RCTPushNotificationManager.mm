@@ -97,6 +97,7 @@ RCT_ENUM_CONVERTER(
 
 @implementation RCTPushNotificationManager
 
+#if !TARGET_OS_VISION
 /** DEPRECATED. UILocalNotification was deprecated in iOS 10. Please don't add new callsites. */
 static NSDictionary *RCTFormatLocalNotification(UILocalNotification *notification)
 {
@@ -116,6 +117,7 @@ static NSDictionary *RCTFormatLocalNotification(UILocalNotification *notificatio
   formattedLocalNotification[@"remote"] = @NO;
   return formattedLocalNotification;
 }
+#endif
 
 /** For delivered notifications */
 static NSDictionary<NSString *, id> *RCTFormatUNNotification(UNNotification *notification)
@@ -267,6 +269,7 @@ RCT_EXPORT_MODULE()
   kInitialNotification = notification;
 }
 
+#if !TARGET_OS_VISION
 // Deprecated
 + (void)didReceiveLocalNotification:(UILocalNotification *)notification
 {
@@ -283,6 +286,7 @@ RCT_EXPORT_MODULE()
                                                       object:self
                                                     userInfo:userInfo];
 }
+#endif
 
 - (void)invalidate
 {
