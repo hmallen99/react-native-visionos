@@ -13,8 +13,7 @@ package = JSON.parse(File.read(File.join(react_native_path, "package.json")))
 version = package['version']
 
 # Build hermes from given commit
-source_type = HermesEngineSourceType::BUILD_FROM_GITHUB_COMMIT # hermes_source_type(version, react_native_path)
-ENV['HERMES_COMMIT'] = "4249e05bdc3897a4f00aa06de67156b39707781f"
+source_type = HermesEngineSourceType::BUILD_FROM_GITHUB_TAG # hermes_source_type(version, react_native_path)
 source = podspec_source(source_type, version, react_native_path)
 
 Pod::Spec.new do |spec|
