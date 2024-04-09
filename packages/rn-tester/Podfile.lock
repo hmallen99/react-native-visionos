@@ -1720,6 +1720,8 @@ DEPENDENCIES:
   - React-RCTTest (from `./RCTTest`)
   - React-RCTText (from `../react-native/Libraries/Text`)
   - React-RCTVibration (from `../react-native/Libraries/Vibration`)
+  - React-RCTWindowManager (from `../react-native/Libraries/WindowManager`)
+  - React-RCTXR (from `../react-native/Libraries/XR`)
   - React-rendererconsistency (from `../react-native/ReactCommon/react/renderer/consistency`)
   - React-rendererdebug (from `../react-native/ReactCommon/react/renderer/debug`)
   - React-rncore (from `../react-native/ReactCommon`)
@@ -1850,6 +1852,10 @@ EXTERNAL SOURCES:
     :path: "../react-native/Libraries/Text"
   React-RCTVibration:
     :path: "../react-native/Libraries/Vibration"
+  React-RCTWindowManager:
+    :path: "../react-native/Libraries/WindowManager"
+  React-RCTXR:
+    :path: "../react-native/Libraries/XR"
   React-rendererconsistency:
     :path: "../react-native/ReactCommon/react/renderer/consistency"
   React-rendererdebug:
