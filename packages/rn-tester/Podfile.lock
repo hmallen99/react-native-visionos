@@ -13,7 +13,7 @@ PODS:
   - hermes-engine/inspector (0.74.0-rc.1)
   - hermes-engine/inspector_chrome (0.74.0-rc.1)
   - hermes-engine/Public (0.74.0-rc.1)
-  - MyNativeView (0.74.77):
+  - MyNativeView (0.74.79):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -34,7 +34,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - NativeCxxModuleExample (0.74.77):
+  - NativeCxxModuleExample (0.74.79):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1309,7 +1309,7 @@ PODS:
     - React-logger (= 0.74.0-rc.1)
     - React-perflogger (= 0.74.0-rc.1)
     - React-utils (= 0.74.0-rc.1)
-  - ScreenshotManager (0.74.77):
+  - ScreenshotManager (0.74.79):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1548,8 +1548,8 @@ SPEC CHECKSUMS:
   fmt: 5d9ffa7ccba126c08b730252123601d514652320
   glog: 4f05d17aa39a829fee878689fc9a41af587fabba
   hermes-engine: 2b53c232d1a95c2093578fd17dd32237b9c0c62f
-  MyNativeView: 7fa78132e3351d2cc4233e5a9c1cb478c48c6416
-  NativeCxxModuleExample: 335f99741dc1c38dd5594814c885bf834ee1a3c0
+  MyNativeView: c4aaa3f972a479202196ca591d3c65eb6b1ab059
+  NativeCxxModuleExample: 978ea1de41abda27891de7137ac60c049ccdd0ca
   OCMock: 267d92c078398b7ce11d99e811e3a402744c06bc
   RCT-Folly: 70c792c856324d6a518af75b3a307c14c226343a
   RCTDeprecation: d2d9ef7c3dba88e97dc2f329d818982f3e8d83af
@@ -1580,9 +1580,9 @@ SPEC CHECKSUMS:
   React-perflogger: 089abef3eb4eabcb534fce3da0386c47cf080646
   React-RCTActionSheet: 76864856b2f8b97d33bf7739ea1d0d92fe38db5a
   React-RCTAnimation: 67028d7666ea64565eb312ed200badf89b910e62
-  React-RCTAppDelegate: 65efd3065c275163319432394a54305c93bfa5e0
+  React-RCTAppDelegate: a53575c3ac64f533b09336f4a51906206d7841ab
   React-RCTBlob: ab6878c80437f2cc26c155e94b8578b7a6858710
-  React-RCTFabric: cb092419f72f4282f990dacddaec58e53568e0f8
+  React-RCTFabric: fbb9fb9232c0424b0e13a45e8999f92a57cbbd5c
   React-RCTImage: a57120e92370a2d005c15a0d2a12af79d3d9c727
   React-RCTLinking: 16deab069f2c88f9173673cebe4f99e4ede88140
   React-RCTNetwork: 3aeea25d834e4f28a7c6209bb8565b662153a3a5
@@ -1604,10 +1604,10 @@ SPEC CHECKSUMS:
   React-utils: 02a3705421e204e0f754067f0a7f4a3e5120c325
   ReactCommon: 6d3ce1d6b1aa56620b7a11ab6932a1037c6b89db
   ReactCommon-Samples: d4a4e28f5a50f5051315dca3545981512b0710ca
-  ScreenshotManager: 99c369c7042ab32574e3c8c0443dd56578311451
+  ScreenshotManager: 649fb870b10882e51d0a8cef4227e93be094f679
   SocketRocket: 0ba3e799f983d2dfa878777017659ef6c866e5c6
-  Yoga: 0a7ac0788eaaea91b812e1d50c4133f050b6f5e8
+  Yoga: 8813645d004ffb1dfa3d9ec4b96833d23214203a
 
 PODFILE CHECKSUM: 7e999b8158f1055609ef4491bc35f1ad658fdd6c
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
