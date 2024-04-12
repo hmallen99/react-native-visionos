@@ -2539,13 +2539,6 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
-"@react-native/popup-menu-android@0.74.76":
-  version "0.74.76"
-  resolved "https://registry.yarnpkg.com/@react-native/popup-menu-android/-/popup-menu-android-0.74.76.tgz#9c986ddcdfee80b62d3cdfbf882cfe6efcfbdad6"
-  integrity sha512-oveo2vTkUMWOC6odeGKbopId8TczPZFy26UrZjoOFDKRmTkMl/JZ3AuwbefIrEX6EwBqxVXVMEXKIUgEW225PQ==
-  dependencies:
-    nullthrows "^1.1.1"
-
 "@rnx-kit/chromium-edge-launcher@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rnx-kit/chromium-edge-launcher/-/chromium-edge-launcher-1.0.0.tgz#c0df8ea00a902c7a417cd9655aab06de398b939c"

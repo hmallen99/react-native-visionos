@@ -60,6 +60,7 @@ RCT_EXPORT_MODULE()
                                            selector:@selector(interfaceOrientationDidChange)
                                                name:UIApplicationDidChangeStatusBarOrientationNotification
                                              object:nil];
+#endif
 
   _currentInterfaceDimensions = [self _exportedDimensions];
 
@@ -77,10 +78,13 @@ RCT_EXPORT_MODULE()
                                            selector:@selector(interfaceFrameDidChange)
                                                name:RCTWindowFrameDidChangeNotification
                                              object:nil];
+#if !TARGET_OS_VISION
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(interfaceFrameDidChange)
                                                name:UIDeviceOrientationDidChangeNotification
                                              object:nil];
+#endif
+
 
   // TODO T175901725 - Registering the RCTDeviceInfo module to the notification is a short-term fix to unblock 0.73
   // The actual behavior should be that the module is properly registered in the TurboModule/Bridge infrastructure
@@ -120,7 +124,9 @@ RCT_EXPORT_MODULE()
 
   [[NSNotificationCenter defaultCenter] removeObserver:self name:RCTBridgeWillInvalidateModulesNotification object:nil];
 
+#if !TARGET_OS_VISION
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+#endif
 }
 
 static BOOL RCTIsIPhoneNotched()
