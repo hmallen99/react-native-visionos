@@ -23,6 +23,8 @@
     "clean-ios": "rm -rf build/generated/ios Pods Podfile.lock"
   },
   "dependencies": {
+    "@callstack/out-of-tree-platforms": "0.74.3",
+    "@react-native/popup-menu-android": "0.74.84",
     "flow-enums-runtime": "^0.0.6",
     "invariant": "^2.2.4",
     "nullthrows": "^1.1.1",
@@ -30,9 +32,9 @@
     "@callstack/out-of-tree-platforms": "0.74.87"
   },
   "peerDependencies": {
+    "@callstack/react-native-visionos": "*",
     "react": "18.2.0",
-    "react-native": "*",
-    "@callstack/react-native-visionos": "*"
+    "react-native": "*"
   },
   "codegenConfig": {
     "name": "AppSpecs",
