@@ -1,6 +1,6 @@
 {
   "name": "@callstack/react-native-visionos",
-  "version": "1000.0.0",
+  "version": "0.75.0-rc.6",
   "description": "React Native for visionOS",
   "license": "MIT",
   "repository": {

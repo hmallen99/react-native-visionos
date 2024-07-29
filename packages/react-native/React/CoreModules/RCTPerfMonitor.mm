@@ -170,9 +170,14 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)container
 {
+
   if (!_container) {
+#if TARGET_OS_IOS
     CGSize statusBarSize = RCTSharedApplication().statusBarFrame.size;
     CGFloat statusBarHeight = statusBarSize.height;
+#else
+    CGFloat statusBarHeight = 0;
+#endif
     _container = [[UIView alloc] initWithFrame:CGRectMake(10, statusBarHeight, 180, RCTPerfMonitorBarHeight)];
     _container.layer.borderWidth = 2;
     _container.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -185,6 +190,7 @@ RCT_EXPORT_MODULE()
   }
 
   return _container;
+
 }
 
 - (UILabel *)memory
