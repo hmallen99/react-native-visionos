@@ -72,6 +72,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithCoder : coder)
 
 - (void)notifyForOrientationChange
 {
+#if TARGET_OS_IOS
   if (!_onOrientationChange) {
     return;
   }
@@ -88,6 +89,7 @@ RCT_NOT_IMPLEMENTED(-(instancetype)initWithCoder : coder)
     @"orientation" : isPortrait ? @"portrait" : @"landscape",
   };
   _onOrientationChange(eventPayload);
+#endif
 }
 
 - (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
