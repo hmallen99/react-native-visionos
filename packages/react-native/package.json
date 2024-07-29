@@ -92,7 +92,9 @@
     "!template/package-lock.json",
     "!template/yarn.lock",
     "third-party-podspecs",
-    "types"
+    "types",
+    "visionos_modules",
+    "local-cli/localCommands.js"
   ],
   "scripts": {
     "prepack": "node ./scripts/prepack.js",
