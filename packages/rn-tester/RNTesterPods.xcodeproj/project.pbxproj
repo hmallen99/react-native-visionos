@@ -461,8 +461,8 @@
 				763DC36F2B0F824200D2C0C5 /* Frameworks */,
 				763DC3702B0F824200D2C0C5 /* Resources */,
 				763DC38C2B10A42B00D2C0C5 /* Build JS Bundle */,
-				D88C968E3153313E61AE696C /* [CP] Embed Pods Frameworks */,
 				8634A0D0E14BF96B8A2F986B /* [CP] Copy Pods Resources */,
+				67D794AADD86F5FC0B553A84 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -730,6 +730,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTester/Pods-RNTester-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		67D794AADD86F5FC0B553A84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		68CD48B71D2BCB2C007E06A9 /* Build JS Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -843,23 +860,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D88C968E3153313E61AE696C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTester-visionOS/Pods-RNTester-visionOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E446637427ECD101CAACE52B /* [CP] Copy Pods Resources */ = {
