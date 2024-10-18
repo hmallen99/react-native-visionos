@@ -60,13 +60,16 @@
     [RCTComponentViewFactory currentComponentViewFactory].thirdPartyFabricComponentsProvider = self;
   }
 
+#if !TARGET_OS_VISION
   if (self.automaticallyLoadReactNativeWindow) {
     [self loadReactNativeWindow:launchOptions];
   }
+#endif
 
   return YES;
 }
 
+#if !TARGET_OS_VISION
 - (void)loadReactNativeWindow:(NSDictionary *)launchOptions
 {
   UIView *rootView = [self.rootViewFactory viewWithModuleName:self.moduleName
@@ -79,6 +82,7 @@
   _window.rootViewController = rootViewController;
   [_window makeKeyAndVisible];
 }
+#endif
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
